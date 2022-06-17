@@ -11,9 +11,11 @@ Javafx version: 18.0.1
 The application will contain:
 - Main Screen: application title and 4 buttons: prokaryotic, eukaryotic, help menu, quit.
 - Prokaryotic:
+<ul>
 + Details in cell component and explain the function: use image for simplicity
 + Button to investigate amitosis: switch to new amitosis screen.
 + Button: back to the main menu.
+ </ul>
 - Eukaryotic: Similar to Prokaryotic, but with 2 buttons are mitosis and meisosis.
 - Help menu:  shows the basic usage and aim of the application ?
 - Amitosis, Meiosis, Mitosis screen: in thinking progress ...
