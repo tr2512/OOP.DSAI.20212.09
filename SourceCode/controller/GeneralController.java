@@ -6,12 +6,17 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.fxml.FXML;
 
 public abstract class GeneralController {
 	protected Scene scene;
 	protected Stage stage;
 	protected Parent root;
 	protected FXMLLoader loader;
+	
+	@FXML
+	protected AnchorPane pane;
 	
 	public void switchScene(String xmlDir, ActionEvent e) {
 		try {

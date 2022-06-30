@@ -1,0 +1,19 @@
+Current work:
+- draw a chromosome of eukaryotic with the following SVGPath: M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0
+- Run simple animation of this chromosome.
+- Current idea: draw chromosome in Scene builder, give it an fx:id, create a corresponding attribute in controller, manipulate through draw() method.
+- Create animation by update the coordinate through state class.
+Drawbacks:
+- too many attributes(8 chromosome, each with X, y, rotation angle, visibility)
+- manipulates all of them takes a lot of programming
+- the coordinate is still hard coded, doesn't take the panel size into considerations.
+- still stucks at the divided to 2 cells.
+Some ideas but haven't implemented yet:
+- Create an ArrrayList for chromosome, circle, rectangle, spindle, ... to handle dynamically instead of hard code (create all of them at the start and manipulate by visibility)
+Problem with this approach: how to add to view, coordinate, ...
+- Create a HBox with multiple AnchorPane, each AnchorPane for one cells, when divide the cell add another AnchorPane to HBox.
+Problem: just an idea with multiple issues.
+- Update coordinate based on AnchorPane height and width, not hard coded number.
+- Animation at anaphase, where chromatids split to 2 spindles, make them move along a curve instead with PathTransition instead of TranslateTransition
+problem: pretty hard to design condition.
+Note: this is still pretty vague, sorry :) 

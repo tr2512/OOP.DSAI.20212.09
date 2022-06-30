@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EukaryoticController">
+   <center>
+      <HBox prefHeight="400.0" prefWidth="252.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="pane1" prefHeight="400.0" prefWidth="601.0">
+               <children>
+                  <Rectangle fx:id="outer" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="255.0" stroke="BLACK" strokeType="INSIDE" width="269.0" />
+                  <Circle fx:id="membrane" fill="#fffd1f" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+                  <SVGPath fx:id="l1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="l2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="l3" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="l4" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="r1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="r2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="r3" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                  <SVGPath fx:id="r4" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="prevButton" layoutX="199.0" layoutY="1.0" mnemonicParsing="false" onAction="#prev" text="Prev" />
+            <Button fx:id="nextButton" layoutX="362.0" layoutY="1.0" mnemonicParsing="false" onAction="#next" text="Next" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
