@@ -81,10 +81,10 @@ public class EukaryoticController {
     
     public Animation Transition(Shape shape, int x, int y, float rotated, int timer) {
     	ParallelTransition parallel = new ParallelTransition();
-    	TranslateTransition translate = new TranslateTransition(Duration.millis(timer), shape);
+    	TranslateTransition translate = new TranslateTransition(Duration.millis(timer), shape); //translate transition for the chromosome
     	translate.setByX(x - shape.getTranslateX());
     	translate.setByY(y - shape.getTranslateY());
-    	RotateTransition rotate = new RotateTransition(Duration.millis(timer), shape);
+    	RotateTransition rotate = new RotateTransition(Duration.millis(timer), shape); //rotate transition for the chromosome
     	rotate.setByAngle(rotated - shape.getRotate());
     	parallel.getChildren().addAll(translate, rotate);
     	return parallel;
