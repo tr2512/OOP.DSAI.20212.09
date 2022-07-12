@@ -3,11 +3,13 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.animation.TranslateTransition;
 import javafx.animation.RotateTransition;
@@ -16,7 +18,7 @@ import javafx.animation.Animation;
 
 import model.CellContext;
 
-public class EukaryoticController {
+public class ProkaryoticController {
 
 	private CellContext cell;
 	private ParallelTransition pt;
@@ -25,15 +27,11 @@ public class EukaryoticController {
     @FXML
     private SVGPath l2;
     @FXML
-    private SVGPath l3;
-    @FXML
-    private SVGPath l4;
-    @FXML
-    private Circle membrane;
+    private Circle outer1;
     @FXML
     private Button nextButton;
     @FXML
-    private Rectangle outer;
+    private Circle outer2;
     @FXML
     private AnchorPane pane1;
     @FXML
@@ -42,40 +40,56 @@ public class EukaryoticController {
     private SVGPath r1;
     @FXML
     private SVGPath r2;
-    @FXML
-    private SVGPath r3;
-    @FXML
-    private SVGPath r4;
     private SVGPath[] chromos;
+    @FXML
+    private Line line;
+    @FXML
+    private ProgressBar progressbar;
+    @FXML
+    private Text text;
+    private double progress;
+
 
     @FXML
     void next(ActionEvent event) {
     	cell.nextState();
-    	draw(2000);
+    	increaseProgress();
+        draw(2000);
+
     }
 
     @FXML
     void prev(ActionEvent event) {
     	cell.prevState();
+        decreaseProgress();
     	draw(2000);
     }
+
     
     public void initialize() {
     	cell = new CellContext();
-    	chromos = new SVGPath[] {l1, l2, l3, l4, r1, r2, r3, r4};
-    	draw(1);
+    	chromos = new SVGPath[] {l1, l2, r1, r2};
+    	draw(2);
+        progressbar.setStyle("-fx-accent: #00F00;");
+        text.setText("0 %");
     }
     
     public void draw(int timer) {
-    	for (int i = 0; i < 4; i ++) {
-    		chromos[i + 4].setVisible(cell.getState().isVisible());
+        nextButton.setVisible(cell.getState().isNextBtnVisible());
+        prevButton.setVisible(cell.getState().isPrevBtnVisible());
+        
+    	for (int i = 0; i < 2; i ++) {
+    		chromos[i + 2].setVisible(cell.getState().isVisible());
     	}
+        line.setVisible(cell.getState().isRiboVisible());
+
+
     	pt = new ParallelTransition();
     	for (int i = 0; i < chromos.length; i++) {
     		pt.getChildren().add(Transition(chromos[i], cell.getState().getChromoX()[i + 2], cell.getState().getChromoY()[i + 2], cell.getState().getChromoRotate()[i + 2], timer));
     	}
-    	pt.getChildren().add(Transition(outer, cell.getState().getChromoX()[0], cell.getState().getChromoY()[0], cell.getState().getChromoRotate()[0], timer));
-    	pt.getChildren().add(Transition(membrane, cell.getState().getChromoX()[1], cell.getState().getChromoY()[1], cell.getState().getChromoRotate()[1], timer));
+    	pt.getChildren().add(Transition(outer1, cell.getState().getChromoX()[0], cell.getState().getChromoY()[0], cell.getState().getChromoRotate()[0], timer));
+    	pt.getChildren().add(Transition(outer2, cell.getState().getChromoX()[1], cell.getState().getChromoY()[1], cell.getState().getChromoRotate()[1], timer));
     	pt.play();
     }
     
@@ -89,4 +103,19 @@ public class EukaryoticController {
     	parallel.getChildren().addAll(translate, rotate);
     	return parallel;
     }
+    public void increaseProgress(){
+        if(progress < 1){
+            progress += 0.25;
+            progressbar.setProgress(progress);
+            text.setText(Integer.toString((int)Math.round(progress * 100)) + "%");}
+    }
+
+    public void decreaseProgress(){
+        if(progress >0){
+        progress -= 0.25;
+        progressbar.setProgress(progress);
+        text.setText(Integer.toString((int)Math.round(progress * 100)) + "%");
+        }
+    }
+
 }
