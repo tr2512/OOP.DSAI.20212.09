@@ -1,0 +1,54 @@
+>>>helpMenu()
+C.E.O (Cell Easy Option)
+v1.0.2
+
+Welcome users to the natural cell program. By this tool, you
+will have a holistic overview about prokaryotic and eukaryotic 
+cell and its functional components
+In the first interface screen, you will see 4 buttons that 
+consecutively arranged clock-wise: Prokaryotic, Eukaryotic, Help
+and Quit.
+- Prokaryotic (tế bào nhân sơ): enter in. users see the 
+prokaryotic cell, its components and how it self-divide by 
+amitosis(cytokinesis).
+- Eukaryotic (tế bào nhân thực): enter in. users see the 
+eukaryotic cell, its components and the methods of cell division:
+mitosis and meiosis.
+- Help: enter in the help menu to see the instructions.
+- Quit: A pane will show up to ask whether you really want 
+to quit the program or not. 
+
+//<trong phần này mà làm thêm một pane chứa mặt các thành viên trong team rồi vai trò nữa được thì tốt>
+
+(c)Group9 Copyright. DSAI-K65. 2022
+
+Contact us//(i)//
+
+If you need to have support, if you have any questions or suggestions about my programs to 
+upgrade it, do not hesitate to contact us at {//email//}
+
+
+
+
+>>> helpCell()
+Here you see the components of prokaryotic/eukaryotic cells.
+
+To see the description of the cell's functional components, drag 
+your mouse around the components to find a lighten orange dot. 
+Click in, the program shows up a box on the righthandside, which 
+contains the information of a single component and its 
+contribution to the way how the cell works.
+
+
+>>>helpCellDivision()
+Continue. This part of program will show a simulation 
+that simplify the process of cell division. There are 3 types:
+amitosis related to Prokaryotic cell, mitosis and meiosis related
+to Eukaryotic cell.
+
+In the window screen of each method of cell division, there 
+are 2 buttons [prev] and [forward] to let users freely switching 
+between phases of a complete division. There is also a bar
+of progress located between 2 buttons to show the milestone-
+phases had been passed through.
+  
