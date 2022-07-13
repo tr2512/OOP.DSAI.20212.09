@@ -7,16 +7,18 @@ public abstract class GeneralState {
 	protected boolean visible;
 	protected boolean prevBtnVisible;
 	protected boolean nextBtnVisible;
-	protected boolean RiboVisible;
+	protected boolean peptidoglycanFirst;
+	protected boolean peptidoglycanLast;
 	
-	public GeneralState(int[] chromoX, int[] chromoY, float[] chromoRotate, boolean visible,boolean prevBtnVisible ,boolean nextBtnVisible, boolean RiboVisible) {
+	public GeneralState(int[] chromoX, int[] chromoY, float[] chromoRotate, boolean visible,boolean prevBtnVisible ,boolean nextBtnVisible, boolean peptidoglycanFirst, boolean peptidoglycanLast) {
 		this.chromoX = chromoX;
 		this.chromoY = chromoY;
 		this.chromoRotate = chromoRotate;
 		this.visible = visible;
 		this.prevBtnVisible = prevBtnVisible;
 		this.nextBtnVisible = nextBtnVisible;
-		this.RiboVisible = RiboVisible;
+		this.peptidoglycanFirst = peptidoglycanFirst;
+		this.peptidoglycanLast = peptidoglycanLast;
 	}
 	
 	public int[] getChromoX() {
@@ -43,8 +45,12 @@ public abstract class GeneralState {
 		return nextBtnVisible;
 	}
 
-	public boolean isRiboVisible(){
-		return RiboVisible;
+	public boolean isPeptidoglycanFirst(){
+		return peptidoglycanFirst;
+	}
+
+	public boolean isPeptidoglycanLast(){
+		return peptidoglycanLast;
 	}
 	public abstract String printState();
 }

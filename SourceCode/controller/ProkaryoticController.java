@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -81,13 +82,28 @@ public class ProkaryoticController {
     	for (int i = 0; i < 2; i ++) {
     		chromos[i + 2].setVisible(cell.getState().isVisible());
     	}
-        line.setVisible(cell.getState().isRiboVisible());
-
+        // line.setVisible(cell.getState().isRiboVisible());
 
     	pt = new ParallelTransition();
     	for (int i = 0; i < chromos.length; i++) {
     		pt.getChildren().add(Transition(chromos[i], cell.getState().getChromoX()[i + 2], cell.getState().getChromoY()[i + 2], cell.getState().getChromoRotate()[i + 2], timer));
     	}
+        if(cell.getState().isPeptidoglycanLast()){
+        pt.setOnFinished(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent arg0) {
+                line.setVisible(cell.getState().isPeptidoglycanLast());
+                
+            }
+        
+            
+        });}
+        else{
+            line.setVisible(cell.getState().isPeptidoglycanFirst());
+        }
+
+
     	pt.getChildren().add(Transition(outer1, cell.getState().getChromoX()[0], cell.getState().getChromoY()[0], cell.getState().getChromoRotate()[0], timer));
     	pt.getChildren().add(Transition(outer2, cell.getState().getChromoX()[1], cell.getState().getChromoY()[1], cell.getState().getChromoRotate()[1], timer));
     	pt.play();
@@ -105,17 +121,18 @@ public class ProkaryoticController {
     }
     public void increaseProgress(){
         if(progress < 1){
-            progress += 0.25;
+            progress += 0.33333;
             progressbar.setProgress(progress);
             text.setText(Integer.toString((int)Math.round(progress * 100)) + "%");}
     }
 
     public void decreaseProgress(){
         if(progress >0){
-        progress -= 0.25;
+        progress -= 0.33333;
         progressbar.setProgress(progress);
         text.setText(Integer.toString((int)Math.round(progress * 100)) + "%");
         }
     }
+
 
 }
