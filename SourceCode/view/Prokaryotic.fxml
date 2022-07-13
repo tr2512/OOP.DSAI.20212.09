@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProkaryoticController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProkaryoticController">
    <children>
-      <Label layoutX="43.0" layoutY="28.0" text="Prokaryotic">
+      <Label layoutX="43.0" layoutY="28.0" text="Prokaryotic" textFill="#4d1818">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="50.0" layoutY="299.0" mnemonicParsing="false" onAction="#back" text="Back">
+      <Button layoutX="51.0" layoutY="93.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="259.0" layoutY="299.0" mnemonicParsing="false" text="Help">
+      <Button layoutX="51.0" layoutY="193.0" mnemonicParsing="false" text="Help">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="417.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchAmitosis" text="Amitosisamitosis">
+      <Button layoutX="41.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchAmitosis" text="Amitosis">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="200.0" layoutY="1.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../292564005_565108055159208_9099631720057446286_n.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
