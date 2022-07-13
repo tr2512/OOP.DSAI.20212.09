@@ -3,17 +3,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
-import javafx.scene.paint.Color;
 import java.io.IOException;
+
+import controller.EukaryoticController;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 	try {	
-		Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/MainScreen.fxml"));
-		Scene scene = new Scene(root, Color.BLACK);
-		
+		FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Eukaryotic.fxml"));
+		loader.setController(new EukaryoticController("mitosis"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
 		stage.setTitle("Application");
 		stage.setScene(scene);
 		stage.show();
