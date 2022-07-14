@@ -15,9 +15,6 @@ public class HelpScreenController extends GeneralController{
     private AnchorPane scenePane;
 
     @FXML
-    private Button homeButton;
-
-    @FXML
     void openLink(ActionEvent e) throws IOException, URISyntaxException  {
         Desktop.getDesktop().browse(new URI("https://github.com/tr2512/OOP.DSAI.20212.09"));
     }
