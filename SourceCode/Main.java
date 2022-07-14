@@ -14,7 +14,7 @@ public class Main extends Application {
 		Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/MainScreen.fxml"));
 		Scene scene = new Scene(root, Color.BLACK);
 		
-		stage.setTitle("Application");
+		stage.setTitle("Cell Division");
 		stage.setScene(scene);
 		stage.show();
 		} catch (IOException e) {
