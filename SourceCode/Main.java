@@ -3,8 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
-import controller.MainScreenController;
-
 
 public class Main extends Application {
 	@Override

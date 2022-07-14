@@ -14,6 +14,11 @@
     -fx-background-radius: 5, 5, 4;
 }
 
+.bar {
+    -fx-background-color: linear-gradient(to bottom, white 80%, transparent 100%);
+    -fx-effect: dropshadow( gaussian, rgba(255, 255, 255, 0.5), 0, 0, 0, 1);
+}
+
 .textarea {
     -fx-background-insets: 0 0 -1 0, 0, 1;
     -fx-background-radius: 5, 5, 4;
