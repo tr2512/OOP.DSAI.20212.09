@@ -17,6 +17,7 @@ public class Main extends Application {
 
         stage.setTitle("Cell Division");
         stage.setScene(new Scene(root));
+		stage.setResizable(false);
         stage.show();
     }
 	
