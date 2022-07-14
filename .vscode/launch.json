@@ -4,14 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "controller.test",
+            "projectName": "OOP.DSAI.20212.09_ceae8fb4"
+        },
         {
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "${file}",
-            "vmArgs" : "--module-path /Users/nguyenhuyhai/javafxx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml" 
-
+            "vmArgs": "--module-path /Users/nguyenhuyhai/javafxx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

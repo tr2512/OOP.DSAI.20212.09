@@ -9,10 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 
@@ -45,19 +47,24 @@ public abstract class GeneralController {
         rec.setStrokeWidth(5.0);
     }
 
-	public void componentInformation(String headerText, String contentText){
-		Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Detail Information");
-    	alert.setHeaderText(headerText);
-		alert.setContentText(contentText);
-		alert.showAndWait();
 
-	}
 
-	public String toText(String xmlDir) throws IOException{
-		String data = "";
-		data = new String(Files.readAllBytes(Paths.get(xmlDir)));
-		return data;
+	public void componentInformation(String headerText, String Dir) throws FileNotFoundException {
+		
+			String data = "";
+
+			String Path = System.getProperty("user.dir");
+        	File file = new File(Path + Dir);
+			Scanner scan = new Scanner(file);
+			while(scan.hasNextLine()){
+			data = data.concat(scan.nextLine() + "\n");
+			}
+		
+			Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("Detail Information");
+    		alert.setHeaderText(headerText);
+			alert.setContentText(data);
+			alert.showAndWait();
 	}
 
 }

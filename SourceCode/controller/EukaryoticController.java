@@ -2,6 +2,9 @@ package controller;
 
 
 
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -122,45 +125,93 @@ public class EukaryoticController extends GeneralController{
      }
 
      @FXML
-     void infoEndo(MouseEvent event){
-         super.componentInformation("endoplasmic reticulum", "contentText");
+     void infoEndo(MouseEvent event) {
+         try {
+            super.componentInformation("endoplasmic reticulum", "/SourceCode/text/eukaryotic/eu_Endoplasmic.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     @FXML
-     void infoNu(MouseEvent event){
-         super.componentInformation("Nucleus", "contentText");
+     void infoNu(MouseEvent event) {
+         try {
+            super.componentInformation("Nucleus", "/SourceCode/text/eukaryotic/eu_Nucleus.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     @FXML
-     void infoChro(MouseEvent event){
-         super.componentInformation("Chromosome", "contentText");
+     void infoChro(MouseEvent event) {
+         try {
+            super.componentInformation("Chromosome", "/SourceCode/text/eukaryotic/eu_Chromosome.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     @FXML
-     void infoCytop(MouseEvent event){
-         super.componentInformation("Cytoplasm", "contentText");
+     void infoCytop(MouseEvent event) {
+        try {
+            super.componentInformation("Cytoplasm", "/SourceCode/text/eukaryotic/eu_Cytoplasm.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+     @FXML
+     void infoCytos(MouseEvent event) {
+        try {
+            super.componentInformation("Cytoskeleton", "/SourceCode/text/eukaryotic/eu_Cytoskeleton.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
      @FXML
-     void infoCytos(MouseEvent event){
-         super.componentInformation("Cytoskeleton", "contentText");
+     void infoRibo(MouseEvent event) {
+        try {
+            super.componentInformation("Ribosome", "/SourceCode/text/eukaryotic/eu_Ribosome.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
      @FXML
-     void infoRibo(MouseEvent event){
-         super.componentInformation("Ribosomes", "contentText");
+     void infoMito(MouseEvent event) {
+        try {
+            super.componentInformation("Mitochondrion", "/SourceCode/text/eukaryotic/eu_Mitochondrion.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
      @FXML
-     void infoMito(MouseEvent event){
-         super.componentInformation("mitochondrion", "contentText");
+     void infoLyso(MouseEvent event) {
+        try {
+            super.componentInformation("Lysosome", "/SourceCode/text/eukaryotic/eu_Lysosome.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
      @FXML
-     void infoLyso(MouseEvent event){
-         super.componentInformation("Lysosome", "contentText");
+     void infoGolgi(MouseEvent event) {
+        try {
+            super.componentInformation("Golgi body", "/SourceCode/text/eukaryotic/eu_Golgi.txt");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
      }
-     @FXML
-     void infoGolgi(MouseEvent event){
-         super.componentInformation("Golgi body", "contentText");
-     }
+
 
      public void initialize(){
         myImage.setVisible(true);
     }
+
+    
      
 
 

@@ -3,6 +3,9 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+
+import java.io.FileNotFoundException;
+
 import javafx.event.ActionEvent;
 public class ProkaryoticController extends GeneralController{
     
@@ -53,15 +56,30 @@ public class ProkaryoticController extends GeneralController{
    //show detailed information
    @FXML
    void infoPlas(MouseEvent event){
-       super.componentInformation("Plasmid", "contentText");
+       try {
+        super.componentInformation("Plasmid", "/SourceCode/text/prokaryotic/plasmid.txt");
+    } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
   }
   @FXML
    void infoNu(MouseEvent event){
-       super.componentInformation("Nucleus", "contentText");
+       try {
+        super.componentInformation("Nucleoid", "/SourceCode/text/prokaryotic/nucleoid.txt");
+    } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
   }
   @FXML
-   void infoChro(MouseEvent event){
-       super.componentInformation("Chromosome", "contentText");
+   void infoChro(MouseEvent event) {
+       try {
+        super.componentInformation("Chromosome", "/SourceCode/text/prokaryotic/chromosome.txt");
+    } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
    }
 
 
