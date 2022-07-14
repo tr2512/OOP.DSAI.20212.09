@@ -34,7 +34,7 @@ import model.Telophase;
 public class EukaryoticController {
 	
 	private String process;
-	private float progress = 0;
+	private float progress;
 	private Timeline running;
     private AnchorPane[] panes = new AnchorPane[4];
 	private CellContext cell;
@@ -206,6 +206,8 @@ public class EukaryoticController {
     	});
     	title.setText(cell.getState().getProcess());
     	running.getKeyFrames().add(kf);
+    	progressBar.setProgress(0);
+    	progress = 0;
     	playPressed(new ActionEvent());
     }
     
@@ -221,6 +223,9 @@ public class EukaryoticController {
     }
     
     public void draw(int timer) {
+    	if (pt != null) {
+    		pt.stop();
+    	}
     	pt = new ParallelTransition();
     	for (int i = 0; i < chromos.length; i++) {
     		pt.getChildren().addAll(Transition(chromos[i], cell.getState().getChromoX()[i], cell.getState().getChromoY()[i], cell.getState().getChromoRotate()[i], timer));
@@ -307,21 +312,38 @@ public class EukaryoticController {
 	
 	private void increaseProgress() {
 		if (cell.getState().getProcess().equals("mitosis")) {
-    		progress = progress + 1.0f/6;
-    		progressBar.setProgress(progress);
+			if (progress < 1) {
+				progress = progress + 1.0f/6;
+	    		progressBar.setProgress(progress);
+			}
     	} else {
-    		progress += 1.0f/10;
-    		progressBar.setProgress(progress);
+    		if (progress < 1) {
+        		progress += 1.0f/10;
+        		progressBar.setProgress(progress);
+			}
     	}
 	}
 	
 	private void decreaseProgress() {
 		if (cell.getState().getProcess().equals("mitosis")) {
-    		progress -= 1.0f/6;
-    		progressBar.setProgress(progress);
+			if (progress > 0) {
+				progress -= 1.0f/6;
+	    		progressBar.setProgress(progress);
+			}
     	} else {
-    		progress -= 1.0f/10;
-    		progressBar.setProgress(progress);
+    		if (progress > 0) {
+				progress -= 1.0f/10;
+	    		progressBar.setProgress(progress);
+			}    	
     	}
 	}
+	
+	@FXML
+	void replayPressed(ActionEvent e) {
+		box.getChildren().clear();
+		running.stop();
+		initialize();
+		
+	}
+	
 }
