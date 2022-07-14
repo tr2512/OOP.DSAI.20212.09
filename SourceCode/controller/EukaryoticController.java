@@ -3,6 +3,8 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -16,15 +18,15 @@ import javafx.animation.TranslateTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.animation.ParallelTransition;
+
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import model.Anaphase;
 import model.CellContext;
-import model.DivideState;
 import model.EndState;
 import model.GeneralState;
-import model.Interphase;
 import model.Metaphase;
 import model.Prophase;
 import model.Telophase;
@@ -32,49 +34,52 @@ import model.Telophase;
 public class EukaryoticController {
 	
 	private String process;
+	private float progress = 0;
+	private Timeline running;
     private AnchorPane[] panes = new AnchorPane[4];
 	private CellContext cell;
 	private SVGPath[] chromos = new SVGPath[8];;	
 	private ParallelTransition pt;
     private Line[] lines = new Line[8];
+    @FXML
+    private Label information;
+    @FXML 
+    private Label title;
+	@FXML
+	private ProgressBar progressBar;
 	@FXML
 	private GridPane box;
     @FXML
     private Button nextButton;
     @FXML
     private Button prevButton;
+    @FXML
+    private Button stop;
+    @FXML
+    private Button play;
 
     @FXML
     void next(ActionEvent event) {
+    	int timer = 2000;
     	if (cell.getState() instanceof Telophase) {
+    		timer = 1;
     		box.getChildren().clear();
-        	GeneralState.setSize(300, 400);
         	for (int i = 0; i < 8; i++) {
     			chromos[i].setScaleX(0.5);
     			chromos[i].setScaleY(0.5);
     		}
-        	if (!process.equals("meiosis2")) {
-        		panes[1] = new AnchorPane();
+        	if (!cell.getState().getProcess().equals("meiosis2")) {
+            	GeneralState.setSize(300, 400);
         		panes[0] = new AnchorPane();
+        		panes[1] = new AnchorPane();
         		createGUI(panes[0], 400, 300);
         		createGUI(panes[1], 400, 300);
             	panes[0].getChildren().addAll(chromos[0], chromos[1], chromos[4], chromos[5], lines[0], lines[1], lines[4], lines[5]);
             	panes[1].getChildren().addAll(chromos[2], chromos[3], chromos[6], chromos[7], lines[2], lines[3], lines[6], lines[7]);
         		box.add(panes[0], 0, 0);
         		box.add(panes[1], 1, 0);
-        		if (process.equals("meiosis")) {
-        			cell.setState(new Prophase("meiosis2"));
-        			process = "meiosis2";
-        		} else {
-        			cell.nextState();
-        		}
-        		componentVisible(panes[0]);
-        		componentVisible(panes[1]);
-        		for (int i = 0; i < 8; i++) {
-
-        		}
-    			draw(2000);
         	}  else {
+        		GeneralState.setSize(300, 200);
         		for (int i = 0; i < panes.length; i++) {
         			panes[i] = new AnchorPane();
         			panes[i].setPrefSize(200, 300);
@@ -88,35 +93,23 @@ public class EukaryoticController {
         		box.add(panes[1], 1, 0);
         		box.add(panes[2], 0, 1);
         		box.add(panes[3], 1, 1);
-        		cell.nextState();
-        		for (int i = 0; i < panes.length; i++) {
-        			componentVisible(panes[i]);
-        		}
-    			draw(2000);
         	}
-    		} else {
-    			cell.nextState();
-    			for (AnchorPane pane:panes) {
-    				if (pane != null) {
-    					componentVisible(pane);
-    					draw(2000);
-	    		}
-			}
     	}
+    	cell.nextState();
+    	for (AnchorPane pane:panes) {
+    		if (pane != null) {
+    			componentVisible(pane);
+    		}
+    	}
+    	draw(timer);
+    	increaseProgress();
     }
 
     @FXML
     void prev(ActionEvent event) {
-    	if (!((cell.getState() instanceof EndState) | (cell.getState() instanceof Prophase & process.equals("meiosis2")))) {
-    		cell.prevState();
-	    	for (AnchorPane pane:panes) {
-	    		if (pane != null) {
-	    			componentVisible(pane);
-	        		draw(2000);
-	    		}
-	    	}
-    		System.out.println(cell.getState().printState());
-    	} else if (cell.getState() instanceof EndState & process.equals("meiosis2")) {
+    	int timer = 2000;
+    	if (cell.getState() instanceof EndState & cell.getState().getProcess().equals("meiosis2")) {
+    		timer = 1;
     		GeneralState.setSize(300, 400);
     		box.getChildren().clear();
     		panes[3] = null;
@@ -125,40 +118,37 @@ public class EukaryoticController {
     		panes[0] = new AnchorPane();
     		createGUI(panes[0], 400, 300);
     		createGUI(panes[1], 400, 300);
-    		cell.setState(new Telophase(process));
         	panes[0].getChildren().addAll(chromos[0], chromos[1], chromos[4], chromos[5], lines[0], lines[1], lines[4], lines[5]);
         	panes[1].getChildren().addAll(chromos[2], chromos[3], chromos[6], chromos[7], lines[2], lines[3], lines[6], lines[7]);
     		box.add(panes[0], 0, 0);
     		box.add(panes[1], 1, 0);
-    		componentVisible(panes[0]);
-    		componentVisible(panes[1]);
-    		draw(2000);
-    		} else {
-    	
-    			GeneralState.setSize(600, 400);
-        		box.getChildren().clear();
-        		panes[1] = null;
-        		panes[0] = new AnchorPane();
-        		if (process.equals("meiosis2")) {
-        			process = "meiosis";
-        		} 
-        		cell.setState(new Telophase(process));
-        		createGUI(panes[0], 400, 600);
-        		for (int i = 0; i < 8; i++) {
-        			chromos[i].setScaleX(1);
-        			chromos[i].setScaleY(1);
-        			panes[0].getChildren().addAll(lines[i], chromos[i]);
-        		}
-        		box.add(panes[0], 0, 0);
-        		componentVisible(panes[0]);
-        		draw(2000);
-        		}
-    		}    		
+    	} else if ((cell.getState() instanceof EndState & cell.getState().getProcess().equals("mitosis")) | (cell.getState() instanceof Prophase & cell.getState().getProcess().equals("meiosis2"))) {
+    		timer = 1;
+    		GeneralState.setSize(600, 400);
+        	box.getChildren().clear();
+        	panes[1] = null;
+        	panes[0] = new AnchorPane();
+        	createGUI(panes[0], 400, 600);
+        	for (int i = 0; i < 8; i++) {
+        		chromos[i].setScaleX(1);
+        		chromos[i].setScaleY(1);
+        		panes[0].getChildren().addAll(lines[i], chromos[i]);
+        	}
+        	box.add(panes[0], 0, 0);
+        }
+    	cell.prevState();
+    	for (AnchorPane pane:panes) {
+    		if (pane != null) {
+    			componentVisible(pane);
+    		}
+    	}
+    	draw(timer);
+    	decreaseProgress();
+    }    		
 
     
     private void createGUI(AnchorPane pane1, float height, float width) {
-    	GeneralState.width = width;
-    	GeneralState.height = height;
+    	GeneralState.setSize(width, height);
     	pane1.setPrefSize(width, height);
     	Circle membrane = new Circle(width*53/600, Color.YELLOW);
     	Circle newmembrane1 = new Circle(width*53/600, Color.YELLOW);
@@ -170,8 +160,8 @@ public class EukaryoticController {
     	centroid2.setContent("M 0 0 Q -4 -8 -7 -6 C -7 -4 -4 -5 -3 0 C -4 5 -7 4 -7 6 Q -4 8 0 0");
     	centroid1.setTranslateX(width*190/600);
     	centroid2.setTranslateX(width*419.5/600);
-    	centroid1.setTranslateY(width*200/600);
-    	centroid2.setTranslateY(width*200/600);
+    	centroid1.setTranslateY(width*245/600);
+    	centroid2.setTranslateY(width*245/600);
     	centroid2.setRotate(180);
     	centroid1.setVisible(false);
     	centroid2.setVisible(false);
@@ -184,8 +174,8 @@ public class EukaryoticController {
     	outer.setTranslateX(width*172.5/600);
     	outer.setTranslateY(width*72.5/600);
     	for (int i = 0; i < 4; i++) {
-			lines[2*i] = new Line(width*180.5/600, width*200/600, width*180.5/600, width*200/600);
-			lines[2*i + 1] = new Line(width*419.5/600, width*200/600, width*419.5/600, width*200/600);
+			lines[2*i] = new Line(width*180.5/600, width*245/600, width*180.5/600, width*245/600);
+			lines[2*i + 1] = new Line(width*419.5/600, width*245/600, width*419.5/600, width*245/600);
 		}
     	pane1.getChildren().addAll(outer, membrane, newmembrane1, newmembrane2, centroid1, centroid2);
     }
@@ -202,12 +192,21 @@ public class EukaryoticController {
     		panes[0].getChildren().add(path);
     	}
     	for (int i = 0; i < 4; i++) {
-			lines[2*i] = new Line(panes[0].getPrefWidth()*180.5/600, panes[0].getPrefWidth()*200/600, panes[0].getPrefWidth()*180.5/600, panes[0].getPrefWidth()*200/600);
-			lines[2*i + 1] = new Line(panes[0].getPrefWidth()*419.5/600, panes[0].getPrefWidth()*200/600, panes[0].getPrefWidth()*419.5/600, panes[0].getPrefWidth()*200/600);
+			lines[2*i] = new Line(panes[0].getPrefWidth()*180.5/600, panes[0].getPrefWidth()*245/600, panes[0].getPrefWidth()*180.5/600, panes[0].getPrefWidth()*245/600);
+			lines[2*i + 1] = new Line(panes[0].getPrefWidth()*419.5/600, panes[0].getPrefWidth()*245/600, panes[0].getPrefWidth()*419.5/600, panes[0].getPrefWidth()*245/600);
 			panes[0].getChildren().addAll(lines[2*i], lines[2*i + 1]);
     	}
     	componentVisible(panes[0]);
     	draw(1);
+    	running = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> next(e)));
+    	KeyFrame kf = new KeyFrame(Duration.seconds(0), e -> {
+    		if (cell.getState() instanceof EndState) {
+    			stopPressed(e);
+    		}
+    	});
+    	title.setText(cell.getState().getProcess());
+    	running.getKeyFrames().add(kf);
+    	playPressed(new ActionEvent());
     }
     
     private void componentVisible(AnchorPane pane) {
@@ -224,13 +223,13 @@ public class EukaryoticController {
     public void draw(int timer) {
     	pt = new ParallelTransition();
     	for (int i = 0; i < chromos.length; i++) {
-    		pt.getChildren().add(Transition(chromos[i], cell.getState().getChromoX()[i], cell.getState().getChromoY()[i], cell.getState().getChromoRotate()[i], timer));
+    		pt.getChildren().addAll(Transition(chromos[i], cell.getState().getChromoX()[i], cell.getState().getChromoY()[i], cell.getState().getChromoRotate()[i], timer));
     	}
     	if (cell.getState() instanceof Metaphase | cell.getState() instanceof Anaphase) {
     		for (int i = 0; i < 4; i++) {
     				lines[2*i].setVisible(true);
     				lines[2*i + 1].setVisible(true);
-    			if (!process.equals("meiosis")) {
+    			if (!cell.getState().getProcess().equals("meiosis")) {
     				Timeline animation1 = new Timeline(
         		            new KeyFrame(Duration.millis(2000), new KeyValue(lines[2*i].endXProperty(), cell.getState().getChromoX()[2*i]))    
         		        );
@@ -254,13 +253,13 @@ public class EukaryoticController {
             		        );
             			pt.getChildren().addAll(animation1, animation2);
     				} else {
-    					Timeline animation3 = new Timeline(
+    					Timeline animation1 = new Timeline(
             		            new KeyFrame(Duration.millis(2000), new KeyValue(lines[2*i + 1].endXProperty(), cell.getState().getChromoX()[2*i + 1] - panes[0].getPrefWidth()/100) 
             		        ));
-            			Timeline animation4 = new Timeline(
+            			Timeline animation2 = new Timeline(
             		            new KeyFrame(Duration.millis(2000), new KeyValue(lines[2*i + 1].endYProperty(), cell.getState().getChromoY()[2*i + 1]))    
             		        );
-            			pt.getChildren().addAll(animation3, animation4);
+            			pt.getChildren().addAll(animation1, animation2);
     				}
     			}
     		}
@@ -275,20 +274,54 @@ public class EukaryoticController {
     			}
     		}
     	pt.play();
+    	information.setText(cell.getState().printState());
     }
     
-    public Animation Transition(Shape shape, float x, float y, float rotated, int timer) {
-    	ParallelTransition parallel = new ParallelTransition();
+    public Animation[] Transition(Shape shape, float x, float y, float rotated, int timer) {
     	TranslateTransition translate = new TranslateTransition(Duration.millis(timer), shape);
     	translate.setToX(x);
     	translate.setToY(y);
     	RotateTransition rotate = new RotateTransition(Duration.millis(timer), shape);
     	rotate.setToAngle(rotated);
-    	parallel.getChildren().addAll(translate, rotate);
-    	return parallel;
+    	return new Animation[] {translate, rotate};
     }
-
+    
+    @FXML
+    void playPressed(ActionEvent e) {
+    	play.setVisible(false);
+    	stop.setVisible(true);
+    	running.setCycleCount(Timeline.INDEFINITE);
+    	running.play();
+    }
+    
+    @FXML
+    void stopPressed(ActionEvent e) {
+    	stop.setVisible(false);
+    	play.setVisible(true);
+    	running.stop();
+    }
+    
 	public EukaryoticController(String process) {
 		this.process = process;
+	}
+	
+	private void increaseProgress() {
+		if (cell.getState().getProcess().equals("mitosis")) {
+    		progress = progress + 1.0f/6;
+    		progressBar.setProgress(progress);
+    	} else {
+    		progress += 1.0f/10;
+    		progressBar.setProgress(progress);
+    	}
+	}
+	
+	private void decreaseProgress() {
+		if (cell.getState().getProcess().equals("mitosis")) {
+    		progress -= 1.0f/6;
+    		progressBar.setProgress(progress);
+    	} else {
+    		progress -= 1.0f/10;
+    		progressBar.setProgress(progress);
+    	}
 	}
 }

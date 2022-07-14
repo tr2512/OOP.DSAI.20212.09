@@ -1,8 +1,8 @@
 package model;
 
 public abstract class GeneralState {
-	public static float width;
-	public static float height;
+	static float width;
+	static float height;
 	protected String process;
 	protected float[] chromoX;
 	protected float[] chromoY;
@@ -14,6 +14,10 @@ public abstract class GeneralState {
 	
 	public float[] getChromoX() {
 		return chromoX;
+	}
+
+	public String getProcess() {
+		return process;
 	}
 
 	public float[] getChromoY() {

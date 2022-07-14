@@ -4,7 +4,6 @@ public class Prophase extends MiddleState {
 	
 	public void prev(CellContext cell) {
 		if (process.equals("meiosis2")) {
-			System.out.println("something");
 			cell.setState(new Telophase("meiosis"));
 		} else {
 			cell.setState(new Interphase(process));

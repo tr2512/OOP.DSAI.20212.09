@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage stage) {
 	try {	
 		FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/Eukaryotic.fxml"));
-		loader.setController(new EukaryoticController("mitosis"));
+		loader.setController(new EukaryoticController("meiosis"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		stage.setTitle("Application");

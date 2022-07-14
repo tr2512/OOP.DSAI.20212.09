@@ -7,7 +7,11 @@ public class Telophase extends MiddleState {
 	}
 	
 	public void next(CellContext cell) {
-		cell.setState(new DivideState(process));
+		if (process.equals("meiosis")) {
+			cell.setState(new Prophase("meiosis2"));
+		} else {
+			cell.setState(new DivideState(process));
+		}
 	}
 	
 	public String printState() {
@@ -28,6 +32,5 @@ public class Telophase extends MiddleState {
 		}
 		this.visible = new boolean[] {true, false, true};
 		super.fitComponent();
-		System.out.println(process);
 	}
 }
