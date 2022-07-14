@@ -14,12 +14,10 @@ public class MainScreenController extends GeneralController{
     @FXML
     private AnchorPane scenePane;
 
-    public void switchProkaryotic(ActionEvent e) {
-        super.switchScene("view/Prokaryotic.fxml", e);
+    public void switchHelp(ActionEvent e) {
+        super.switchScene("view/HelpScreen.fxml", "Help", e);
     }
-    public void switchEukaryotic(ActionEvent e){
-        super.switchScene("view/Eukaryotic.fxml", e);
-    }
+
     public void quit(ActionEvent e){
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Warning");
@@ -29,8 +27,14 @@ public class MainScreenController extends GeneralController{
             stage = (Stage) scenePane.getScene().getWindow();
             stage.close();
         }
+    }
 
+    public void switchProkaryotic(ActionEvent e) {
+        super.switchScene("view/Prokaryotic.fxml", "Prokaryotic cell", e);
+    }
 
+    public void switchEukaryotic(ActionEvent e){
+        super.switchScene("view/Eukaryotic.fxml", "Eukaryotic cell", e);
     }
 
 }

@@ -13,3 +13,36 @@
     -fx-background-insets: 0 0 -1 0, 0, 1;
     -fx-background-radius: 5, 5, 4;
 }
+
+.textarea {
+    -fx-background-insets: 0 0 -1 0, 0, 1;
+    -fx-background-radius: 5, 5, 4;
+}
+
+.textarea.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.textarea.scroll-pane.viewport {
+    -fx-background-color: transparent;
+}
+
+.textarea.scroll-pane.content {
+    -fx-background-color: transparent;
+}
+
+.transparent {
+    -fx-background-color: transparent;
+}
+
+.transparent.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.transparent.scroll-pane.viewport {
+    -fx-background-color: transparent;
+}
+
+.transparent.scroll-pane.content {
+    -fx-background-color: transparent;
+}

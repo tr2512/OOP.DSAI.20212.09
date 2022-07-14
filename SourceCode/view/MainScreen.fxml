@@ -27,7 +27,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Label>
-            <Button maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Help ">
+            <Button maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchHelp" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Help ">
                <font>
                   <Font size="12.0" />
                </font>

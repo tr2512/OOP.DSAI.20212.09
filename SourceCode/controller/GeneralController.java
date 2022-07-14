@@ -13,16 +13,17 @@ public abstract class GeneralController {
 	protected Parent root;
 	protected FXMLLoader loader;
 	
-	public void switchScene(String xmlDir, ActionEvent e) {
+	public void switchScene(String xmlDir, String title, ActionEvent e) {
 		try {
 			loader = new FXMLLoader(getClass().getClassLoader().getResource(xmlDir));
 			root = loader.load();
+
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException except) {
-			except.printStackTrace();
+			stage.setScene(new Scene(root));
+			stage.setTitle(title);
+			stage.show(); 
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 }
