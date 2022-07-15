@@ -33,9 +33,9 @@ public class CellContext {
 	}
 	
 	public CellContext() {
-		int[] new1 = {122, 122, 76, 89, 148, 168};
-		int[] new2 = {172, 172, 173, 207,  158, 187};
-		float[] new3 = {0, 0, -17.1f, 146.3f, 162.4f, -33.7f};
+		int[] new1 = {105, 105, 76, 89, 148, 168};
+		int[] new2 = {160, 160, 173, 207,  158, 187};
+		float[] new3 = {-160, -160, -17.1f, 146.3f, 162.4f, -33.7f};
 		this.state = new State1(new1, new2, new3, false, false, true, false, false);
 	}
 }

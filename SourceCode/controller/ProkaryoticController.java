@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
@@ -28,11 +28,11 @@ public class ProkaryoticController {
     @FXML
     private SVGPath l2;
     @FXML
-    private Circle outer1;
+    private Ellipse outer1;
     @FXML
     private Button nextButton;
     @FXML
-    private Circle outer2;
+    private Ellipse outer2;
     @FXML
     private AnchorPane pane1;
     @FXML
