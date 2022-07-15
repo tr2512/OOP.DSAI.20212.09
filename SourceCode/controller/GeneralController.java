@@ -13,14 +13,14 @@ public abstract class GeneralController {
 	protected Parent root;
 	protected FXMLLoader loader;
 	
-	public void switchScene(String xmlDir, String title, ActionEvent e) {
+	public void switchScene(String xmlDir, ActionEvent e) {
 		try {
 			loader = new FXMLLoader(getClass().getClassLoader().getResource(xmlDir));
 			root = loader.load();
 
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(root));
-			stage.setTitle(title);
+			stage.setTitle("Cell Division Application");
 			stage.show(); 
 		} catch (IOException ex) {
 			ex.printStackTrace();

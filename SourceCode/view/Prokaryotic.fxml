@@ -82,9 +82,9 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <VBox fx:id="objectField" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <VBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
-                        <Label prefHeight="24.0" text="Object">
+                        <Label fx:id="objectField" prefHeight="24.0" text="Object">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -104,9 +104,9 @@
                   </Label>
                   <VBox maxHeight="1.7976931348623157E308" prefHeight="161.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
-                        <TextFlow fx:id="descriptionField" prefWidth="200.0">
+                        <TextFlow prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                              <Text fx:id="descriptionField" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -130,17 +130,17 @@
                         <Image url="@../resources/img/cell/prokaryoticCell_edited.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="7.0" layoutY="88.0" prefWidth="70.0" text="chromosome" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recChro" layoutX="7.0" layoutY="88.0" onMouseClicked="#infoChro" onMouseEntered="#highlightChro" onMouseExited="#blurChro" prefWidth="70.0" text="chromosome" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="134.0" layoutY="226.0" text="nucleoid" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recNu" layoutX="134.0" layoutY="226.0" onMouseClicked="#infoNu" onMouseEntered="#highlightNu" onMouseExited="#blurNu" text="nucleoid" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="235.0" layoutY="81.0" text="plasmid" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recPlas" layoutX="235.0" layoutY="81.0" onMouseClicked="#infoPlas" onMouseEntered="#highlightPlas" onMouseExited="#blurPlas" text="plasmid" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

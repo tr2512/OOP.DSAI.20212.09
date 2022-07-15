@@ -87,9 +87,9 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <VBox fx:id="objectField" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <VBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
-                        <Label prefHeight="24.0" text="Object">
+                        <Label fx:id="objectField" prefHeight="24.0" text="Object">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -107,11 +107,11 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <VBox fx:id="descriptionField" maxHeight="1.7976931348623157E308" prefHeight="161.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <VBox maxHeight="1.7976931348623157E308" prefHeight="161.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
                         <TextFlow prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                              <Text fx:id="descriptionField" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -135,47 +135,47 @@
                         <Image url="@../resources/img/cell/eukaryoticCell_edited.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="7.0" layoutY="85.0" prefWidth="70.0" text="endoplasmic reticulum" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recEndo" layoutX="7.0" layoutY="85.0" onMouseClicked="#infoEndo" onMouseEntered="#highlightEndo" onMouseExited="#blurEndo" prefWidth="70.0" text="endoplasmic reticulum" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="61.0" layoutY="56.0" text="nucleus" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recNu" layoutX="61.0" layoutY="56.0" onMouseClicked="#infoNu" onMouseEntered="#highlightNu" onMouseExited="#blurNu" text="nucleus" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="91.0" layoutY="37.0" text="chromosome" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recChro" layoutX="91.0" layoutY="37.0" onMouseClicked="#infoChro" onMouseEntered="#highlightChro" onMouseExited="#blurChro" text="chromosome" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="150.0" layoutY="18.0" text="cytoplasm" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recCytop" layoutX="150.0" layoutY="18.0" onMouseClicked="#infoCytop" onMouseEntered="#highlightCytop" onMouseExited="#blurCytop" text="cytoplasm" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="231.0" layoutY="18.0" text="cytoskeleton" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recCytos" layoutX="231.0" layoutY="18.0" onMouseClicked="#infoCytos" onMouseEntered="#highlightCytos" onMouseExited="#blurCytos" text="cytoskeleton" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="299.0" layoutY="29.0" text="ribosome" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recRibo" layoutX="299.0" layoutY="29.0" onMouseClicked="#infoRibo" onMouseEntered="#highlightRibo" onMouseExited="#blurRibo" text="ribosome" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="300.0" layoutY="176.0" text="mitochondrion" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recMito" layoutX="300.0" layoutY="176.0" onMouseClicked="#infoMito" onMouseEntered="#highlightMito" onMouseExited="#blurMito" text="mitochondrion" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="300.0" layoutY="220.0" text="lysosome" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recLyso" layoutX="300.0" layoutY="220.0" onMouseClicked="#infoLyso" onMouseEntered="#highlightLyso" onMouseExited="#blurLyso" text="lysosome" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label layoutX="252.0" layoutY="263.0" text="Golgi body" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recGolgi" layoutX="252.0" layoutY="263.0" onMouseClicked="#infoGolgi" onMouseEntered="#highlightGolgi" onMouseExited="#blurGolgi" text="Golgi body" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

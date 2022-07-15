@@ -15,7 +15,7 @@ public class MainScreenController extends GeneralController{
     private AnchorPane scenePane;
 
     public void switchHelp(ActionEvent e) {
-        super.switchScene("view/HelpScreen.fxml", "Help", e);
+        super.switchScene("view/HelpScreen.fxml", e);
     }
 
     public void quit(ActionEvent e){
@@ -30,11 +30,11 @@ public class MainScreenController extends GeneralController{
     }
 
     public void switchProkaryotic(ActionEvent e) {
-        super.switchScene("view/Prokaryotic.fxml", "Prokaryotic cell", e);
+        super.switchScene("view/Prokaryotic.fxml", e);
     }
 
     public void switchEukaryotic(ActionEvent e){
-        super.switchScene("view/Eukaryotic.fxml", "Eukaryotic cell", e);
+        super.switchScene("view/Eukaryotic.fxml", e);
     }
 
 }

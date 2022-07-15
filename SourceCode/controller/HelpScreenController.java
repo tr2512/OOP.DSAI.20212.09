@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.event.ActionEvent;
 import java.awt.Desktop;
@@ -21,7 +20,7 @@ public class HelpScreenController extends GeneralController{
 
     @FXML
     void switchHome(ActionEvent e) {
-        super.switchScene("view/MainScreen.fxml", "Cell Division", e);
+        super.switchScene("view/MainScreen.fxml", e);
     }
 
 }
