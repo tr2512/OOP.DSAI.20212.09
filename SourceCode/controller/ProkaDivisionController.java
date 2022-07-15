@@ -3,7 +3,6 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
@@ -30,8 +29,6 @@ public class ProkaDivisionController extends DivisionController {
     private SVGPath[] chromos;
     @FXML
     private Line line;
-    @FXML
-    private ProgressBar progressbar;
 
     @FXML
     void next(ActionEvent event) {
