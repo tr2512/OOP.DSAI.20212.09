@@ -33,7 +33,7 @@ public class DivisionProcess {
 	}
 	
 	public DivisionProcess(String process) { 
-		if (process.equals("amitosis")){
+		if (process.equals("binaryFission")){
 			this.state = new StartProkaDivide();
 		} else {
 			this.state = new StartEukaDivide(process);

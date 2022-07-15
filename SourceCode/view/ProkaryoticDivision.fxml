@@ -10,14 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <HBox maxHeight="44.0" maxWidth="780.0" minHeight="44.0" minWidth="780.0" prefHeight="44.0" prefWidth="780.0" style="-fx-background-color: white;">
          <children>
             <Label maxHeight="44.0" maxWidth="105.0" minHeight="44.0" minWidth="-Infinity" onMouseClicked="#switchProkaryoticCell" prefHeight="44.0" prefWidth="105.0" text="Prokaryotic cell">
                <font>
@@ -35,7 +37,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <Label maxHeight="44.0" maxWidth="320.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="320.0" text="Binary Fission">
+            <Label maxHeight="44.0" maxWidth="514.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="514.0" text="Binary Fission">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -53,14 +55,14 @@
                   <Font size="12.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <HBox layoutY="44.0" maxHeight="356.0" maxWidth="600.0" minHeight="356.0" minWidth="600.0" prefHeight="356.0" prefWidth="600.0">
+      <HBox layoutY="44.0" maxHeight="435.0" maxWidth="780.0" minHeight="356.0" minWidth="600.0" prefHeight="435.0" prefWidth="780.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="200.0">
+            <VBox maxHeight="436.0" minHeight="436.0" prefHeight="436.0" prefWidth="200.0">
                <children>
                   <Label text="Information">
                      <font>
@@ -95,7 +97,7 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="159.0" maxWidth="180.0" minHeight="159.0" minWidth="180.0" prefHeight="159.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="318.0" maxWidth="180.0" minHeight="159.0" minWidth="180.0" prefHeight="318.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <content>
                         <TextFlow maxWidth="160.0" minWidth="160.0" prefWidth="160.0">
                            <children>
@@ -116,15 +118,25 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <AnchorPane maxWidth="390.0" minWidth="390.0" prefHeight="200.0" prefWidth="390.0">
+            <AnchorPane maxWidth="607.0" minWidth="390.0" prefHeight="416.0" prefWidth="607.0">
                <children>
-                  <AnchorPane fx:id="animationField" prefHeight="290.0" prefWidth="390.0" />
-                  <VBox layoutX="105.0" layoutY="296.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <AnchorPane fx:id="pane1" prefHeight="354.66666667" prefWidth="600.0">
                      <children>
-                        <ProgressBar fx:id="progressBar" prefWidth="170.0" progress="0.0" stylesheets="@../resources/css/application.css" />
+                        <Ellipse fx:id="outer1" fill="DODGERBLUE" radiusX="90.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Ellipse fx:id="outer2" fill="DODGERBLUE" radiusX="90.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Line fx:id="line" endX="381.84661865234375" endY="219.604736328125" layoutX="-177.0" layoutY="-32.0" startX="218.5" startY="147.5" />
+                        <SVGPath fx:id="l1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                        <SVGPath fx:id="l2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                        <SVGPath fx:id="r1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                        <SVGPath fx:id="r2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
+                     </children>
+                  </AnchorPane>
+                  <VBox alignment="CENTER" layoutX="184.5" layoutY="372.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                     <children>
+                        <ProgressBar fx:id="progressbar" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" progress="0.0" stylesheets="@../resources/css/application.css" />
                         <HBox prefHeight="36.0" stylesheets="@../resources/css/application.css">
                            <children>
-                            <Button fx:id="back" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                            <Button fx:id="prevButton" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#prev" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -139,7 +151,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="playPauseButton" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="play" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#playPressed" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -154,7 +166,19 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="next" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#nextClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="stop" maxHeight="42.0" maxWidth="30.0" minHeight="19.0" mnemonicParsing="false" onAction="#stopPressed" prefHeight="19.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fx:id="playPauseImageView1" fitHeight="25.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/controller/pause.fill@2x.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="nextButton" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#next" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -174,7 +198,7 @@
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Line>
-                              <Button fx:id="restart" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#restartClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="replay" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#restartClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>

@@ -17,7 +17,7 @@ public class Anaphase extends MiddleState {
 	public Anaphase(String process) {
 		super();
 		this.process = process;
-		if (process.equals("meiosis")) {
+		if (process.equals("Meiosis")) {
 			this.chromoX = new float[]{232, 238, 600-232+6, 600-232+12, 232, 238, 600-232+6, 600-232+12};
 			this.chromoY = new float[]{175, 175, 175, 175, 230, 230, 230, 230};
 			this.chromoRotate = new float[]{0, 180, 0, 180, 0, 180, 0, 180};

@@ -233,12 +233,12 @@ public class EukaryoticController extends CellController {
 
     @FXML
     void switchMeiosis(ActionEvent e) {
-        super.switchScene("view/Meiosis.fxml", new EukaryoticDivisionController("meiosis"), e);
+        super.switchScene("view/EukaryoticDivision.fxml", new EukaDivisionController("Meiosis"), e);
     }
 
     @FXML
     void switchMitosis(ActionEvent e) {
-        super.switchScene("view/Mitosis.fxml", new EukaryoticDivisionController("mitosis"), e);
+        super.switchScene("view/EukaryoticDivision.fxml", new EukaDivisionController("Mitosis"), e);
     }
 
     @FXML

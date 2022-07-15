@@ -6,7 +6,7 @@ public class StartProkaDivide extends StartState {
 	}
 	
 	public String printState() {
-		return "This is the original cell before amitosis";
+		return "This is the original cell before binary fission";
 	}
 
 	public StartProkaDivide() {

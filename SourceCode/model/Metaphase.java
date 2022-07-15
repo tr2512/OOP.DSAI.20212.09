@@ -17,7 +17,7 @@ public class Metaphase extends MiddleState {
 	public Metaphase(String process) {
 		super();
 		this.process = process;
-		if (process.equals("meiosis")) {
+		if (process.equals("Meiosis")) {
 			this.chromoX = new float[]{294, 300, 314, 320, 294, 300, 314, 320};
 			this.chromoY = new float[]{175, 175, 175, 175, 230, 230, 230, 230};
 		} else {

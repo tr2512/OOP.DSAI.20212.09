@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="780.0" style="-fx-background-color: white;">
          <children>
-            <Label maxHeight="44.0" minHeight="44.0" prefHeight="44.0" prefWidth="442.0" text="Prokaryotic cell">
+            <Label maxHeight="44.0" minHeight="44.0" prefHeight="44.0" prefWidth="700.0" text="Prokaryotic cell">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -38,12 +38,12 @@
                   <Font size="12.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <HBox layoutY="44.0" maxHeight="356.0" maxWidth="600.0" minHeight="356.0" minWidth="600.0" prefHeight="356.0" prefWidth="600.0">
+      <HBox layoutY="44.0" maxHeight="436.0" maxWidth="780.0" minHeight="436.0" minWidth="780.0" prefHeight="436.0" prefWidth="780.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="200.0">
                <children>
@@ -103,7 +103,7 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="159.0" maxWidth="180.0" minHeight="159.0" minWidth="180.0" prefHeight="159.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="240.0" maxWidth="180.0" minHeight="240.0" minWidth="180.0" prefHeight="240.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <content>
                         <TextFlow maxWidth="160.0" minWidth="160.0" prefWidth="160.0">
                            <children>
@@ -124,24 +124,24 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <AnchorPane maxWidth="390.0" minWidth="390.0" prefHeight="200.0" prefWidth="390.0">
+            <AnchorPane maxWidth="580.0" minWidth="580.0" prefHeight="200.0" prefWidth="580.0">
                <children>
-                  <ImageView fx:id="myImage" fitHeight="192.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true" y="75.0">
+                  <ImageView fx:id="myImage" fitHeight="254.0" fitWidth="494.0" layoutX="39.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" y="75.0">
                      <image>
                         <Image url="@../resources/img/cell/prokaryoticCell_edited.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="recChro" layoutX="7.0" layoutY="88.0" onMouseClicked="#infoChro" onMouseEntered="#highlightChro" onMouseExited="#blurChro" prefWidth="70.0" text="chromosome" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recChro" layoutX="72.0" layoutY="108.0" onMouseClicked="#infoChro" onMouseEntered="#highlightChro" onMouseExited="#blurChro" prefWidth="70.0" text="chromosome" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="recNu" layoutX="134.0" layoutY="226.0" onMouseClicked="#infoNu" onMouseEntered="#highlightNu" onMouseExited="#blurNu" text="nucleoid" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recNu" layoutX="229.0" layoutY="288.0" onMouseClicked="#infoNu" onMouseEntered="#highlightNu" onMouseExited="#blurNu" text="nucleoid" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="recPlas" layoutX="235.0" layoutY="81.0" onMouseClicked="#infoPlas" onMouseEntered="#highlightPlas" onMouseExited="#blurPlas" text="plasmid" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="recPlas" layoutX="344.0" layoutY="101.0" onMouseClicked="#infoPlas" onMouseEntered="#highlightPlas" onMouseExited="#blurPlas" text="plasmid" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

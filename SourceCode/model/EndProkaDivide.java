@@ -16,6 +16,6 @@ public class EndProkaDivide extends EndState {
 
 	
 	public String printState() {
-		return "This is the end of amitosis";
+		return "This is the end of binary fission";
 	}
 }

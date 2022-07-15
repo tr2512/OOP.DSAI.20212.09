@@ -2,8 +2,8 @@ package model;
 
 public class Interphase extends MiddleState {
 	public void prev(DivisionProcess cell) {
-		if (process.equals("meiosis2")) {
-			cell.setState(new Telophase("meiosis"));
+		if (process.equals("Meiosis2")) {
+			cell.setState(new Telophase("Meiosis"));
 		} else {
 			cell.setState(new StartEukaDivide(process));
 		}
@@ -21,7 +21,7 @@ public class Interphase extends MiddleState {
 	public Interphase(String process) {
 		super();
 		this.process = process;
-		if (process.equals("meiosis2")) {
+		if (process.equals("Meiosis2")) {
 			this.chromoX = new float[]{300, 300 + 6, 300, 300 + 6, 300, 300 + 6, 300, 300 + 6};
 			this.chromoY = new float[]{175, 175, 175, 175, 230, 230, 230, 230};
 			this.chromoRotate = new float[]{0, 180, 0, 180, 0, 180, 0, 180};

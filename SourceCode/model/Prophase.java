@@ -3,8 +3,8 @@ package model;
 public class Prophase extends MiddleState {
 	
 	public void prev(DivisionProcess cell) {
-		if (process.equals("meiosis2")) {
-			cell.setState(new Telophase("meiosis"));
+		if (process.equals("Meiosis2")) {
+			cell.setState(new Telophase("Meiosis"));
 		} else {
 			cell.setState(new Interphase(process));
 		}
