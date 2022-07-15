@@ -101,12 +101,12 @@ public class ProkaryoticController extends CellController {
 
     @FXML
     void switchBinaryFission(ActionEvent e) {
-        super.switchScene("view/BinaryFission.fxml", e);
+        super.switchScene("view/ProkaryoticDivision.fxml", (GeneralController)new ProkaDivisionController(), e);
     }
 
     @FXML
     void switchHome(ActionEvent e) {
-        super.switchScene("view/MainScreen.fxml", e);
+        super.switchScene("view/MainScreen.fxml", new MainScreenController(), e);
     }
 
     @FXML

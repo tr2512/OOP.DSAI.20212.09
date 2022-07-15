@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EukaryoticController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -57,7 +57,7 @@
                   </Label>
                   <HBox prefWidth="200.0">
                      <children>
-                        <Button maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchMitosis" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Mitosis">
+                        <Button fx:id="mitosis" maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchMitosis" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Mitosis">
                            <font>
                               <Font size="12.0" />
                            </font>
@@ -65,7 +65,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchMeiosis" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Meisosis">
+                        <Button fx:id="meiosis" maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchMeiosis" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Meisosis">
                            <font>
                               <Font size="12.0" />
                            </font>
