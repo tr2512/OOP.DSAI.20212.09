@@ -87,7 +87,7 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <VBox maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <VBox fx:id="objectField" maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
                         <Label prefHeight="24.0" text="Object">
                            <font>
@@ -107,7 +107,7 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <VBox maxHeight="1.7976931348623157E308" prefHeight="161.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <VBox fx:id="descriptionField" maxHeight="1.7976931348623157E308" prefHeight="161.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
                         <TextFlow prefWidth="200.0">
                            <children>
