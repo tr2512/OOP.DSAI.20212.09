@@ -107,7 +107,7 @@
                      <content>
                         <TextFlow maxWidth="160.0" minWidth="160.0" prefWidth="160.0">
                            <children>
-                              <Text fx:id="descriptionField" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                              <Text fx:id="descriptionField" strokeType="OUTSIDE" strokeWidth="0.0" text="Click the About button or any component on the right to view the details.">
                                  <font>
                                     <Font size="12.0" />
                                  </font>

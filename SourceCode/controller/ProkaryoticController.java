@@ -109,13 +109,13 @@ public class ProkaryoticController extends CellController {
         super.switchScene("view/MainScreen.fxml", e);
     }
 
-    @FXML
-    public void initialize() {
-        try {
-            super.componentInformation("Prokaryotic cell", PROKARYOTE_DESCRIPTION_FILE);
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-    }
+    // @FXML
+    // public void initialize() {
+    //     try {
+    //         super.componentInformation("Prokaryotic cell", PROKARYOTE_DESCRIPTION_FILE);
+    //     } catch (FileNotFoundException e1) {
+    //         e1.printStackTrace();
+    //     }
+    // }
 
 }

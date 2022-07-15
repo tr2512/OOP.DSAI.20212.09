@@ -246,13 +246,13 @@ public class EukaryoticController extends CellController {
         super.switchScene("view/MainScreen.fxml", e);
     }
 
-    @FXML
-    public void initialize() {
-        try {
-            super.componentInformation("Eukaryotic cell", EUKARYOTE_DESCRIPTION_FILE);
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-    }
+    // @FXML
+    // public void initialize() {
+    //     try {
+    //         super.componentInformation("Eukaryotic cell", EUKARYOTE_DESCRIPTION_FILE);
+    //     } catch (FileNotFoundException e1) {
+    //         e1.printStackTrace();
+    //     }
+    // }
 
 }
