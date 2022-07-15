@@ -14,8 +14,4 @@ public class EndProkaDivide extends EndState {
 		cell.setState(new CytoConstrict());		
 	}
 
-	
-	public String printState() {
-		return "This is the end of binary fission";
-	}
 }

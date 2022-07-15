@@ -1,14 +1,10 @@
 package model;
 
 public class StartEukaDivide extends StartState {
+
 	public void next(DivisionProcess cell) {
 		cell.setState(new Interphase(process));
 	}
-	
-	public String printState() {
-		return "This is the original cell before cell division";
-	}
-
 	
 	public StartEukaDivide(String process) {
 		super();
@@ -19,4 +15,5 @@ public class StartEukaDivide extends StartState {
 		this.visible = new boolean[]{false, true, false};
 		super.fitComponent();
 	}
+	
 }

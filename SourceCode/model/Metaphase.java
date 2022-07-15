@@ -11,8 +11,13 @@ public class Metaphase extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is the Metaphase";
+		return "Metaphase";
 	}
+
+	public String printDescription() {
+		return "The nucleus dissolves and the cell's chromosomes condense and move together, aligning in the center of the dividing cell.";
+	}
+
 
 	public Metaphase(String process) {
 		super();
@@ -28,6 +33,5 @@ public class Metaphase extends MiddleState {
 		this.chromoRotate = new float[]{0, 180, 0, 180, 0, 180, 0, 180};
 		this.visible = new boolean[] {true, false, false};	
 		super.fitComponent();
-		// TODO Auto-generated constructor stub
 	}
 }

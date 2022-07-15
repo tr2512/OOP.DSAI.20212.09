@@ -15,7 +15,11 @@ public class Prophase extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is the prophase";
+		return "Prophase";
+	}
+
+	public String printDescription() {
+		return "Chromatin condenses into chromosomes. Nucleolus disappears";
 	}
 	
 	public Prophase(String process) {

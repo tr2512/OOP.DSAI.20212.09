@@ -38,7 +38,7 @@ public class ProkaDivisionController extends DivisionController {
     	cell.nextState();
     	super.increaseProgress(1.0f/3);
         draw(2000);
-        descriptionField.setText(cell.printCurrentState());
+        fillDescription();
 
     }
 
@@ -47,7 +47,7 @@ public class ProkaDivisionController extends DivisionController {
     	cell.prevState();
         super.decreaseProgress(1.0f/3);
     	draw(2000);
-        descriptionField.setText(cell.printCurrentState());
+        fillDescription();
     }
 
     
@@ -55,7 +55,7 @@ public class ProkaDivisionController extends DivisionController {
     	cell = new DivisionProcess("binaryFission");
     	chromos = new SVGPath[] {l1, l2, r1, r2};
     	draw(2);
-    	descriptionField.setText(cell.printCurrentState());
+    	fillDescription();
         progress = 0;
         objectField.setText("Binary fission");
         super.initPlay();

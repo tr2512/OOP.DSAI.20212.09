@@ -11,7 +11,11 @@ public class CytoConstrict extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is where cytoplasm split into 2 half";
+		return "Binary fission";
+	}
+
+	public String printDescription() {
+		return "This is where cytoplasm split into 2 half.";
 	}
 
 	public CytoConstrict() {

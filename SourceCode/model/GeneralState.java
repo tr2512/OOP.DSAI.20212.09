@@ -40,5 +40,7 @@ public abstract class GeneralState {
 		GeneralState.width = x;
 		GeneralState.height = y;
 	}
+
 	public abstract String printState();
+	public abstract String printDescription();
 }

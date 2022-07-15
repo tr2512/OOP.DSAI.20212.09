@@ -2,14 +2,6 @@ package model;
 
 public class EndEukaDivide extends EndState {
 	
-	public void prev(DivisionProcess cell) {
-		cell.setState(new Telophase(process));
-	}
-	
-	public String printState() {
-		return "This is the divided state";
-	}
-	
 	public EndEukaDivide(String process) {
 		super();
 		this.process = process;
@@ -18,4 +10,9 @@ public class EndEukaDivide extends EndState {
 		this.chromoRotate = new float[]{0, 180, -31, 0, 19.7f, -159.4f, 0, 19.7f};
 		this.visible = new boolean[]{true, true, false};
 	}
+
+	public void prev(DivisionProcess cell) {
+		cell.setState(new Telophase(process));
+	}
+
 }

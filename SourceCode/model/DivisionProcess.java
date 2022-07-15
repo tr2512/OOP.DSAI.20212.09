@@ -27,6 +27,10 @@ public class DivisionProcess {
 			((EndState) state).prev(this);
 		}
 	}
+
+	public String printStateDescription() {
+		return state.printDescription();
+	}
 	
 	public String printCurrentState() {
 		return state.printState();

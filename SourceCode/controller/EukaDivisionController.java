@@ -88,7 +88,7 @@ public class EukaDivisionController extends DivisionController {
     	} else {
     		super.increaseProgress(1.0f/10);
     	}
-    	descriptionField.setText(cell.printCurrentState());
+    	fillDescription();
     }
 
     @FXML
@@ -134,7 +134,7 @@ public class EukaDivisionController extends DivisionController {
     	} else {
     		super.decreaseProgress(1.0f/10);
     	}
-    	descriptionField.setText(cell.printCurrentState());
+    	fillDescription();
     }    		
     
     private void createGUI(AnchorPane pane1, float height, float width) {
@@ -192,7 +192,7 @@ public class EukaDivisionController extends DivisionController {
     	initPlay();
     	progressbar.setProgress(0);
     	progress = 0;
-    	descriptionField.setText(cell.printCurrentState());
+    	fillDescription();
 		processLabel.setText(process);
     }
     

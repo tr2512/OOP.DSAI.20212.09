@@ -1,12 +1,9 @@
 package model;
 
 public class StartProkaDivide extends StartState {
+
 	public void next(DivisionProcess cell) {
 		cell.setState(new NuConstrict());
-	}
-	
-	public String printState() {
-		return "This is the original cell before binary fission";
 	}
 
 	public StartProkaDivide() {

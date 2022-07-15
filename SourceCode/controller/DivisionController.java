@@ -86,6 +86,11 @@ public abstract class DivisionController extends GeneralController {
         }
     }
 
+    protected void fillDescription() {
+        objectField.setText(cell.printCurrentState());
+        descriptionField.setText(cell.printStateDescription());
+    }
+
     @FXML
     void playPressed(ActionEvent e) {
     	running.setCycleCount(Timeline.INDEFINITE);
@@ -106,5 +111,5 @@ public abstract class DivisionController extends GeneralController {
     void switchHome(ActionEvent e) {
     	super.switchScene("view/MainScreen.fxml", new MainScreenController(), e);
     }
-    
+
 }

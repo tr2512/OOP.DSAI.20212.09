@@ -11,7 +11,11 @@ public class Anaphase extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is the Anaphase";
+		return "Anaphase";
+	}
+
+	public String printDescription() {
+		return "Chromosomes break at centromeres, and sister chromatids move to opposite ends of the cell.";
 	}
 
 	public Anaphase(String process) {

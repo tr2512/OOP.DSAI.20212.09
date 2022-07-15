@@ -14,7 +14,11 @@ public class Interphase extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is the interphase.";
+		return "Interphase";
+	}
+
+	public String printDescription() {
+		return "The phase of the cell cycle in which a typical cell spends most of its life.";
 	}
 
 	

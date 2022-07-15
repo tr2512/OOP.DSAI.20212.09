@@ -15,7 +15,11 @@ public class Telophase extends MiddleState {
 	}
 	
 	public String printState() {
-		return "This is the Telophase";
+		return "Telophase";
+	}
+
+	public String printDescription() {
+		return "Nuclear membrane reforms, nucleoli reappear, chromosomes unwind into chromatin.";
 	}
 
 	public Telophase(String process) {

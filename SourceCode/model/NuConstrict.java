@@ -10,6 +10,10 @@ public class NuConstrict extends MiddleState {
 	}
 	
 	public String printState() {
+		return "Binary fission";
+	}
+
+	public String printDescription() {
 		return "This is when nucleus split.";
 	}
 
