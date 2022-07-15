@@ -2,7 +2,7 @@ package model;
 
 public class Prophase extends MiddleState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		if (process.equals("meiosis2")) {
 			cell.setState(new Telophase("meiosis"));
 		} else {
@@ -10,7 +10,7 @@ public class Prophase extends MiddleState {
 		}
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		cell.setState(new Metaphase(process));
 	}
 	

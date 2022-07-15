@@ -2,16 +2,16 @@ package model;
 
 public class CytoConstrict extends MiddleState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new NuConstrict());
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		cell.setState(new EndProkaDivide());
 	}
 	
 	public String printState() {
-		return "This is the prophase";
+		return "This is where cytoplasm split into 2 half";
 	}
 
 	public CytoConstrict() {

@@ -1,8 +1,8 @@
 package model;
 
-public class DivideState extends EndState {
+public class EndEukaDivide extends EndState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new Telophase(process));
 	}
 	
@@ -10,7 +10,7 @@ public class DivideState extends EndState {
 		return "This is the divided state";
 	}
 	
-	public DivideState(String process) {
+	public EndEukaDivide(String process) {
 		super();
 		this.process = process;
 		this.chromoX = new float[] {138, 135, 146, 305/2, 324/2, 330/2, 334/2, 338/2};

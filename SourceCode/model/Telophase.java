@@ -2,15 +2,15 @@ package model;
 
 public class Telophase extends MiddleState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new Anaphase(process));
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		if (process.equals("meiosis")) {
 			cell.setState(new Prophase("meiosis2"));
 		} else {
-			cell.setState(new DivideState(process));
+			cell.setState(new EndEukaDivide(process));
 		}
 	}
 	

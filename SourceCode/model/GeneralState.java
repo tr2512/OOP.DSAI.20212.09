@@ -32,5 +32,13 @@ public abstract class GeneralState {
 		}
 	}
 	
+	public String getProcess() {
+		return process;
+	}
+	
+	public static void setSize(float x, float y) {
+		GeneralState.width = x;
+		GeneralState.height = y;
+	}
 	public abstract String printState();
 }

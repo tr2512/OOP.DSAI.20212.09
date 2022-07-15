@@ -1,15 +1,15 @@
 package model;
 
 public class Interphase extends MiddleState {
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		if (process.equals("meiosis2")) {
 			cell.setState(new Telophase("meiosis"));
 		} else {
-			cell.setState(new BeginState(process));
+			cell.setState(new StartEukaDivide(process));
 		}
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		cell.setState(new Prophase(process));
 	}
 	

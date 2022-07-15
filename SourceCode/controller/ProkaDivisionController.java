@@ -10,7 +10,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.SVGPath;
 import javafx.animation.ParallelTransition;
 
-import model.CellContext;
+import model.DivisionProcess;
 public class ProkaDivisionController extends DivisionController {
 
     @FXML
@@ -47,11 +47,12 @@ public class ProkaDivisionController extends DivisionController {
     	cell.prevState();
         super.decreaseProgress(1.0f/3);
     	draw(2000);
+        descriptionField.setText(cell.printCurrentState());
     }
 
     
     public void initialize() {
-    	cell = new CellContext("amitosis");
+    	cell = new DivisionProcess("amitosis");
     	chromos = new SVGPath[] {l1, l2, r1, r2};
     	draw(2);
     	descriptionField.setText(cell.printCurrentState());
@@ -85,5 +86,10 @@ public class ProkaDivisionController extends DivisionController {
     	pt.getChildren().add(Transition(outer1, cell.getState().getChromoX()[0], cell.getState().getChromoY()[0], cell.getState().getChromoRotate()[0], timer));
     	pt.getChildren().add(Transition(outer2, cell.getState().getChromoX()[1], cell.getState().getChromoY()[1], cell.getState().getChromoRotate()[1], timer));
     	pt.play();
+    }
+    
+    @FXML
+    void switchProkaryoticCell(ActionEvent e) {
+    	super.switchScene("view/Prokaryotic.fxml", new ProkaryoticController(), e);
     }
 }

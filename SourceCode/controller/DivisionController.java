@@ -15,12 +15,12 @@ import javafx.animation.Timeline;
 import javafx.animation.ParallelTransition;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import model.CellContext;
+import model.DivisionProcess;
 import model.EndState;
 
 public abstract class DivisionController extends GeneralController {
 	
-	protected CellContext cell;
+	protected DivisionProcess cell;
 	protected ParallelTransition pt;
 	@FXML
     protected Label objectField;
@@ -42,13 +42,13 @@ public abstract class DivisionController extends GeneralController {
     protected ProgressBar progressbar;
     @FXML
     protected double progress = 0;
-	private Timeline running;
+	protected Timeline running;
 	
 	@FXML
 	abstract void next(ActionEvent e);
 	abstract void initialize();
 	protected void initPlay() {
-		running = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> next(e)));
+		running = new Timeline(new KeyFrame(Duration.seconds(5), e -> next(e)));
     	KeyFrame kf = new KeyFrame(Duration.seconds(0), e -> {
     		if (cell.getState() instanceof EndState) {
     			stopPressed(e);
@@ -85,8 +85,6 @@ public abstract class DivisionController extends GeneralController {
 
     @FXML
     void playPressed(ActionEvent e) {
-    	play.setVisible(false);
-    	stop.setVisible(true);
     	running.setCycleCount(Timeline.INDEFINITE);
     	running.play();
     }
@@ -98,14 +96,7 @@ public abstract class DivisionController extends GeneralController {
     
     @FXML
     void stopPressed(ActionEvent e) {
-    	stop.setVisible(false);
-    	play.setVisible(true);
     	running.stop();
-    }
-    
-    @FXML
-    void switchProkaryoticCell(ActionEvent e) {
-    	super.switchScene("view/Prokaryotic.fxml", new ProkaryoticController(), e);
     }
     
     @FXML

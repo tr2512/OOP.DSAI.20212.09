@@ -1,6 +1,6 @@
 package model;
 
-public class CellContext {	
+public class DivisionProcess {	
 	
 	private GeneralState state;
 
@@ -32,9 +32,11 @@ public class CellContext {
 		return state.printState();
 	}
 	
-	public CellContext(String process) { 
+	public DivisionProcess(String process) { 
 		if (process.equals("amitosis")){
 			this.state = new StartProkaDivide();
+		} else {
+			this.state = new StartEukaDivide(process);
 		}
 	}
 }

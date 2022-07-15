@@ -1,7 +1,7 @@
 package model;
 
-public class BeginState extends StartState {
-	public void next(CellContext cell) {
+public class StartEukaDivide extends StartState {
+	public void next(DivisionProcess cell) {
 		cell.setState(new Interphase(process));
 	}
 	
@@ -10,7 +10,7 @@ public class BeginState extends StartState {
 	}
 
 	
-	public BeginState(String process) {
+	public StartEukaDivide(String process) {
 		super();
 		this.process = process;
 		this.chromoX = new float[] {276, 270, 292, 305, 324, 330, 334, 338};

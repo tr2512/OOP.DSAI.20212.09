@@ -2,9 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -12,19 +10,16 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.SVGPath;
-import javafx.scene.shape.Shape;
 import javafx.util.Duration;
-import javafx.animation.TranslateTransition;
-import javafx.animation.RotateTransition;
+
 import javafx.animation.Timeline;
 import javafx.animation.ParallelTransition;
 
 
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import model.Anaphase;
-import model.CellContext;
+import model.DivisionProcess;
 import model.EndState;
 import model.GeneralState;
 import model.Metaphase;
@@ -34,29 +29,12 @@ import model.Telophase;
 public class EukaDivisionController extends DivisionController {
 	
 	private String process;
-	private float progress;
-	private Timeline running;
     private AnchorPane[] panes = new AnchorPane[4];
-	private CellContext cell;
 	private SVGPath[] chromos = new SVGPath[8];;	
 	private ParallelTransition pt;
     private Line[] lines = new Line[8];
     @FXML
-    private Label information;
-    @FXML 
-    private Label title;
-	@FXML
-	private ProgressBar progressBar;
-	@FXML
 	private GridPane box;
-    @FXML
-    private Button nextButton;
-    @FXML
-    private Button prevButton;
-    @FXML
-    private Button stop;
-    @FXML
-    private Button play;
 
     @FXML
     void next(ActionEvent event) {
@@ -102,7 +80,12 @@ public class EukaDivisionController extends DivisionController {
     		}
     	}
     	draw(timer);
-    	increaseProgress();
+    	if (cell.getState().getProcess().equals("mitosis")) {
+    		super.increaseProgress(1.0f/6);
+    	} else {
+    		super.increaseProgress(1.0f/10);
+    	}
+    	descriptionField.setText(cell.printCurrentState());
     }
 
     @FXML
@@ -143,9 +126,13 @@ public class EukaDivisionController extends DivisionController {
     		}
     	}
     	draw(timer);
-    	decreaseProgress();
+    	if (cell.getState().getProcess().equals("mitosis")) {
+    		super.decreaseProgress(1.0f/6);
+    	} else {
+    		super.decreaseProgress(1.0f/10);
+    	}
+    	descriptionField.setText(cell.printCurrentState());
     }    		
-
     
     private void createGUI(AnchorPane pane1, float height, float width) {
     	GeneralState.setSize(width, height);
@@ -153,7 +140,7 @@ public class EukaDivisionController extends DivisionController {
     	Circle membrane = new Circle(width*53/600, Color.YELLOW);
     	Circle newmembrane1 = new Circle(width*53/600, Color.YELLOW);
     	Circle newmembrane2 = new Circle(width*53/600, Color.YELLOW);
-    	Rectangle outer = new Rectangle(width*255/600, pane1.getPrefWidth()*255/600, Color.BLUE);
+    	Rectangle outer = new Rectangle(width*255/600, pane1.getPrefWidth()*255/600, Color.web("#1e90ff"));
     	SVGPath centroid1 = new SVGPath();
     	SVGPath centroid2 = new SVGPath();
     	centroid1.setContent("M 0 0 Q -4 -8 -7 -6 C -7 -4 -4 -5 -3 0 C -4 5 -7 4 -7 6 Q -4 8 0 0");
@@ -181,10 +168,11 @@ public class EukaDivisionController extends DivisionController {
     }
     
     public void initialize() {
+    	box.getChildren().clear();
     	panes[0] = new AnchorPane();
     	createGUI(panes[0], 400, 600);
     	box.add(panes[0], 0, 0);
-    	cell = new CellContext(process);
+    	cell = new DivisionProcess(process);
     	for (int i = 0; i < 8; i++) {
     		SVGPath path = new SVGPath(); 
     		path.setContent("M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0");
@@ -198,17 +186,10 @@ public class EukaDivisionController extends DivisionController {
     	}
     	componentVisible(panes[0]);
     	draw(1);
-    	running = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> next(e)));
-    	KeyFrame kf = new KeyFrame(Duration.seconds(0), e -> {
-    		if (cell.getState() instanceof EndState) {
-    			stopPressed(e);
-    		}
-    	});
-    	title.setText(cell.getState().getProcess());
-    	running.getKeyFrames().add(kf);
-    	progressBar.setProgress(0);
+    	initPlay();
+    	progressbar.setProgress(0);
     	progress = 0;
-    	playPressed(new ActionEvent());
+    	descriptionField.setText(cell.printCurrentState());
     }
     
     private void componentVisible(AnchorPane pane) {
@@ -228,7 +209,7 @@ public class EukaDivisionController extends DivisionController {
     	}
     	pt = new ParallelTransition();
     	for (int i = 0; i < chromos.length; i++) {
-    		pt.getChildren().addAll(Transition(chromos[i], cell.getState().getChromoX()[i], cell.getState().getChromoY()[i], cell.getState().getChromoRotate()[i], timer));
+    		pt.getChildren().add(Transition(chromos[i], cell.getState().getChromoX()[i], cell.getState().getChromoY()[i], cell.getState().getChromoRotate()[i], timer));
     	}
     	if (cell.getState() instanceof Metaphase | cell.getState() instanceof Anaphase) {
     		for (int i = 0; i < 4; i++) {
@@ -279,69 +260,14 @@ public class EukaDivisionController extends DivisionController {
     			}
     		}
     	pt.play();
-    	information.setText(cell.getState().printState());
-    }
-    
-    public Animation[] Transition(Shape shape, float x, float y, float rotated, int timer) {
-    	TranslateTransition translate = new TranslateTransition(Duration.millis(timer), shape);
-    	translate.setToX(x);
-    	translate.setToY(y);
-    	RotateTransition rotate = new RotateTransition(Duration.millis(timer), shape);
-    	rotate.setToAngle(rotated);
-    	return new Animation[] {translate, rotate};
-    }
-    
-    @FXML
-    void playPressed(ActionEvent e) {
-    	play.setVisible(false);
-    	stop.setVisible(true);
-    	running.setCycleCount(Timeline.INDEFINITE);
-    	running.play();
-    }
-    
-    @FXML
-    void stopPressed(ActionEvent e) {
-    	stop.setVisible(false);
-    	play.setVisible(true);
-    	running.stop();
     }
     
 	public EukaDivisionController(String process) {
 		this.process = process;
 	}
 	
-	private void increaseProgress() {
-		if (cell.getState().getProcess().equals("mitosis")) {
-			if (progress < 1) {
-				progress = progress + 1.0f/6;
-	    		progressBar.setProgress(progress);
-			}
-    	} else {
-    		if (progress < 1) {
-        		progress += 1.0f/10;
-        		progressBar.setProgress(progress);
-			}
-    	}
+	@FXML 
+	void switchEukaryoticCell(ActionEvent e) {
+		super.switchScene("view/Eukaryotic.fxml", new EukaryoticController(), e);
 	}
-	
-	private void decreaseProgress() {
-		if (cell.getState().getProcess().equals("mitosis")) {
-			if (progress > 0) {
-				progress -= 1.0f/6;
-	    		progressBar.setProgress(progress);
-			}
-    	} else {
-    		if (progress > 0) {
-				progress -= 1.0f/10;
-	    		progressBar.setProgress(progress);
-			}    	
-    	}
-	}
-	
-	@FXML
-	void replayPressed(ActionEvent e) {
-		box.getChildren().clear();
-		running.stop();
-		initialize();
-		
-	}
+}

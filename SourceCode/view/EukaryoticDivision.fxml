@@ -8,20 +8,20 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="798.0" style="-fx-background-color: white;">
+      <HBox maxHeight="52.0" prefHeight="52.0" prefWidth="810.0" style="-fx-background-color: white;">
          <children>
-            <Label maxHeight="44.0" maxWidth="105.0" minHeight="44.0" minWidth="-Infinity" onMouseClicked="#switchProkaryoticCell" prefHeight="44.0" prefWidth="105.0" text="Prokaryotic cell">
+            <Label maxHeight="44.0" maxWidth="97.0" minHeight="44.0" minWidth="-Infinity" onMouseClicked="#switchEukaryoticCell" prefHeight="44.0" text="Eukaryotic cell">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <Label maxHeight="44.0" maxWidth="514.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="514.0" text="Binary Fission">
+            <Label maxHeight="44.0" maxWidth="787.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="787.0" text="Label">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Insets top="10.0" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="24.0" maxWidth="64.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchProkaryoticCell" prefHeight="24.0" prefWidth="64.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Back">
+            <Button maxHeight="24.0" maxWidth="273.0" minHeight="24.0" minWidth="64.0" mnemonicParsing="false" onAction="#switchEukaryoticCell" prefHeight="24.0" prefWidth="273.0" styleClass="lion-default" stylesheets="@../resources/css/application.css" text="Back">
                <font>
                   <Font size="12.0" />
                </font>
@@ -60,7 +60,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox layoutY="44.0" maxHeight="416.0" maxWidth="806.0" minHeight="356.0" minWidth="600.0" prefHeight="416.0" prefWidth="806.0">
+      <HBox layoutY="44.0" maxHeight="468.0" maxWidth="810.0" minHeight="356.0" minWidth="600.0" prefHeight="468.0" prefWidth="810.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="200.0">
                <children>
@@ -97,7 +97,7 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="292.0" maxWidth="180.0" minHeight="159.0" minWidth="180.0" prefHeight="292.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="332.0" maxWidth="180.0" minHeight="159.0" minWidth="180.0" prefHeight="332.0" prefWidth="180.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <content>
                         <TextFlow maxWidth="160.0" minWidth="160.0" prefWidth="160.0">
                            <children>
@@ -118,25 +118,19 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <AnchorPane maxWidth="607.0" minWidth="390.0" prefHeight="416.0" prefWidth="607.0">
+            <AnchorPane maxWidth="617.0" minWidth="390.0" prefHeight="468.0" prefWidth="617.0">
                <children>
-                  <AnchorPane fx:id="pane1" prefHeight="354.66666667" prefWidth="600.0">
-                     <children>
-                        <Ellipse fx:id="outer1" fill="DODGERBLUE" radiusX="90.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Ellipse fx:id="outer2" fill="DODGERBLUE" radiusX="90.0" radiusY="75.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Line fx:id="line" endX="381.84661865234375" endY="219.604736328125" layoutX="-177.0" layoutY="-32.0" startX="218.5" startY="147.5" />
-                        <SVGPath fx:id="l1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
-                        <SVGPath fx:id="l2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
-                        <SVGPath fx:id="r1" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
-                        <SVGPath fx:id="r2" content="M 0 0 Q -4 -25 -12 -25 C -11 -17 -7 -11 -5 -1 C -8 8 -11 15 -11 23 Q -7 22 0 0" />
-                     </children>
-                  </AnchorPane>
-                  <VBox layoutX="208.0" layoutY="361.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
+                  <GridPane fx:id="box" layoutX="5.0" prefHeight="400.0" prefWidth="600.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <VBox layoutX="222.0" layoutY="408.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
                         <ProgressBar fx:id="progressbar" prefWidth="170.0" progress="0.0" stylesheets="@../resources/css/application.css" />
                         <HBox prefHeight="36.0" stylesheets="@../resources/css/application.css">
                            <children>
-                            <Button fx:id="prevButton" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#prev" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="back" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#prev" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -166,19 +160,19 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="stop" maxHeight="42.0" maxWidth="30.0" minHeight="19.0" mnemonicParsing="false" onAction="#stopPressed" prefHeight="19.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="stop" maxHeight="37.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#stopPressed" prefHeight="37.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
                                  <graphic>
-                                    <ImageView fx:id="playPauseImageView1" fitHeight="25.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="playPauseImageView1" fitHeight="12.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../resources/controller/pause.fill@2x.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="nextButton" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#next" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="next" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#next" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
@@ -198,10 +192,13 @@
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Line>
-                              <Button fx:id="replay" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#restartClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
+                              <Button fx:id="restart" alignment="CENTER" maxHeight="24.0" maxWidth="30.0" minHeight="24.0" mnemonicParsing="false" onAction="#restartClicked" prefHeight="24.0" prefWidth="30.0" styleClass="transparent" stylesheets="@../resources/css/application.css">
                                  <font>
                                     <Font size="12.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets left="6.0" right="6.0" top="6.0" />
+                                 </HBox.margin>
                                  <graphic>
                                     <ImageView fitHeight="12.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -209,9 +206,6 @@
                                        </image>
                                     </ImageView>
                                  </graphic>
-                                 <HBox.margin>
-                                    <Insets left="6.0" right="6.0" top="6.0" />
-                                 </HBox.margin>
                               </Button>
                            </children>
                         </HBox>

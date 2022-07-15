@@ -2,11 +2,11 @@ package model;
 
 public class Metaphase extends MiddleState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new Prophase(process));
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		cell.setState(new Anaphase(process));
 	}
 	
@@ -28,5 +28,6 @@ public class Metaphase extends MiddleState {
 		this.chromoRotate = new float[]{0, 180, 0, 180, 0, 180, 0, 180};
 		this.visible = new boolean[] {true, false, false};	
 		super.fitComponent();
+		// TODO Auto-generated constructor stub
 	}
 }

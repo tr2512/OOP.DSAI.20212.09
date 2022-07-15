@@ -2,11 +2,11 @@ package model;
 
 public class Anaphase extends MiddleState {
 	
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new Metaphase(process));
 	}
 	
-	public void next(CellContext cell) {
+	public void next(DivisionProcess cell) {
 		cell.setState(new Telophase(process));
 	}
 	

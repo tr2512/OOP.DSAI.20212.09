@@ -10,12 +10,12 @@ public class EndProkaDivide extends EndState {
 		this.visible = new boolean[]{true, false, false};
 	}
 
-	public void prev(CellContext cell) {
+	public void prev(DivisionProcess cell) {
 		cell.setState(new CytoConstrict());		
 	}
 
 	
 	public String printState() {
-		return "This is the Metaphase";
+		return "This is the end of amitosis";
 	}
 }

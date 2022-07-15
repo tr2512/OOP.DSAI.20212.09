@@ -1,5 +1,5 @@
 package model;
 
 public abstract class StartState extends GeneralState {
-	public abstract void next(CellContext cell);
+	public abstract void next(DivisionProcess cell);
 }
