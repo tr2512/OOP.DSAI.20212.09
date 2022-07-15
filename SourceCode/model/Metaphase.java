@@ -28,6 +28,5 @@ public class Metaphase extends MiddleState {
 		this.chromoRotate = new float[]{0, 180, 0, 180, 0, 180, 0, 180};
 		this.visible = new boolean[] {true, false, false};	
 		super.fitComponent();
-		// TODO Auto-generated constructor stub
 	}
 }
