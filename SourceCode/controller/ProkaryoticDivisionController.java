@@ -7,7 +7,7 @@ public class ProkaryoticDivisionController extends DivisionController {
 
     @FXML
     void switchProkaryoticCell(ActionEvent e) {
-        super.switchScene("view/Prokaryotic.fxml", e);
+        super.switchScene("view/Prokaryotic.fxml", new ProkaryoticController(), e);
     }
 
 }

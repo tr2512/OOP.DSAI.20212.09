@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProkaryoticController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox maxHeight="44.0" prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
@@ -35,7 +35,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <Label maxHeight="44.0" maxWidth="330.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="330.0" text="Label">
+            <Label fx:id="processLabel" maxHeight="44.0" maxWidth="330.0" minHeight="44.0" minWidth="320.0" prefHeight="44.0" prefWidth="330.0" text="Label">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

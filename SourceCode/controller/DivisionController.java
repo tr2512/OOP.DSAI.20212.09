@@ -55,7 +55,7 @@ public class DivisionController extends GeneralController {
 
     @FXML
     protected void switchHome(ActionEvent e) {
-        super.switchScene("view/MainScreen.fxml", e);
+        super.switchScene("view/MainScreen.fxml", new MainScreenController(), e);
     }
 
     @FXML

@@ -1,3 +1,4 @@
+import controller.MainScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,8 +10,8 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
         final String STORE_FXML_FILE_PATH = "/view/MainScreen.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STORE_FXML_FILE_PATH));
-        // MainScreenController homeController = new MainScreenController();
-        // fxmlLoader.setController(homeController);
+        MainScreenController homeController = new MainScreenController();
+        fxmlLoader.setController(homeController);
         Parent root = fxmlLoader.load();
 
         stage.setTitle("Cell Division");

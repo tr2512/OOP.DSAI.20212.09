@@ -15,9 +15,10 @@ public abstract class GeneralController {
 	protected Parent root;
 	protected FXMLLoader loader;
 	
-	public void switchScene(String xmlDir, ActionEvent e) {
+	public void switchScene(String xmlDir, GeneralController controller, ActionEvent e) {
 		try {
 			loader = new FXMLLoader(getClass().getClassLoader().getResource(xmlDir));
+			loader.setController(controller);
 			root = loader.load();
 
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();

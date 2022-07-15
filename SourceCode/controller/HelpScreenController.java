@@ -20,7 +20,7 @@ public class HelpScreenController extends GeneralController{
 
     @FXML
     void switchHome(ActionEvent e) {
-        super.switchScene("view/MainScreen.fxml", e);
+        super.switchScene("view/MainScreen.fxml", new MainScreenController(), e);
     }
 
 }
