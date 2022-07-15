@@ -51,3 +51,9 @@
 .transparent.scroll-pane.content {
     -fx-background-color: transparent;
 }
+
+.scroll-pane {
+    -fx-background-insets: 0 0 -1 0, 0, 1;
+    -fx-background-radius: 5, 5, 4;
+    -fx-background: transparent;
+}
