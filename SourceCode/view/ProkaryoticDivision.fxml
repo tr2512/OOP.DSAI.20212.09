@@ -118,6 +118,7 @@
             </VBox>
             <AnchorPane maxWidth="390.0" minWidth="390.0" prefHeight="200.0" prefWidth="390.0">
                <children>
+                  <AnchorPane fx:id="animationField" prefHeight="290.0" prefWidth="390.0" />
                   <VBox layoutX="105.0" layoutY="296.0" style="-fx-background-color: white;" styleClass="textarea" stylesheets="@../resources/css/application.css">
                      <children>
                         <ProgressBar fx:id="progressBar" prefWidth="170.0" progress="0.0" stylesheets="@../resources/css/application.css" />
