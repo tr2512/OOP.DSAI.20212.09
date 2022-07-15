@@ -57,3 +57,15 @@
     -fx-background-radius: 5, 5, 4;
     -fx-background: transparent;
 }
+
+.progress-bar {
+    -fx-indeterminate-bar-length: 60;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 2;
+}
+
+.progress-bar>.bar {
+    -fx-background-insets: 1 1 2 1;
+    -fx-padding: 0.20em;
+}
