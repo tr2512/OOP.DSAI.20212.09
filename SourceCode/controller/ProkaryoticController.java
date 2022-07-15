@@ -91,7 +91,7 @@ public class ProkaryoticController extends CellController {
     }
 
     @FXML
-    void switchHelpEukaryoticCell(ActionEvent e) {
+    void aboutCell(ActionEvent e) {
         try {
             super.componentInformation("Prokaryotic cell", PROKARYOTE_DESCRIPTION_FILE);
         } catch (FileNotFoundException e1) {

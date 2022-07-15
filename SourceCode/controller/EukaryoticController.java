@@ -223,7 +223,7 @@ public class EukaryoticController extends CellController {
     }
 
     @FXML
-    void switchHelpEukaryoticCell(ActionEvent e) {
+    void aboutCell(ActionEvent e) {
         try {
             super.componentInformation("Eukaryotic cell", EUKARYOTE_DESCRIPTION_FILE);
         } catch (FileNotFoundException e1) {
