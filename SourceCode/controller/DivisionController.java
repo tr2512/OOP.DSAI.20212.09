@@ -55,7 +55,7 @@ public abstract class DivisionController extends GeneralController {
     		}
     	});
     	running.getKeyFrames().add(kf);
-    	playPressed(new ActionEvent());
+    	// playPressed(new ActionEvent());
 	}
     
     protected Animation Transition(Shape shape, float x, float y, float rotated, int timer) {
