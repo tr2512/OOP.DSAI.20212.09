@@ -31,7 +31,6 @@ public class EukaDivisionController extends DivisionController {
 	private String process;
     private AnchorPane[] panes = new AnchorPane[4];
 	private SVGPath[] chromos = new SVGPath[8];;	
-	private ParallelTransition pt;
     private Line[] lines = new Line[8];
 
     @FXML
